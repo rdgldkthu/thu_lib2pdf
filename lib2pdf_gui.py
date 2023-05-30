@@ -25,8 +25,6 @@ def lib2pdf():
     for i in range(1, no_of_pages):
         url = base_url + str(i) + '.jpg'
         urlretrieve(url, f'./TEMP/{i}.jpg')
-        output_string.set(f'page {i} saved')
-    output_string.set('creating pdf')
 
     # create pdf from images saved
     images = [Image.open(f'./TEMP/' + str(p) + '.jpg') for p in range(1, no_of_pages)]
@@ -51,6 +49,8 @@ def clear_inputs():
     url_entry.delete(0, tk.END)
     pdf_entry.delete(0, tk.END)
     page_entry.delete(0, tk.END)
+
+    output_string.set('boxes cleared!')
 
 
 # main window
